@@ -59,7 +59,7 @@ html {
   background: var(--light);
   border-radius: 5px;
   text-align: center;
-  padding: 20px;
+  padding: 16px;
   color: #000;
   text-decoration: none;
   transition: all ease-out 0.2s;
@@ -127,7 +127,7 @@ html {
   padding: 60px 0;
   display: flex;
   align-items: center;
-  margin-left: -70px;
+  /* margin-left: -70px; */
   color: #b4b4b4;
   font-size: 24px;
   line-height: 26px;
@@ -135,9 +135,9 @@ html {
 
 #clientes .cliente-texto .imagem span {
   color: var(--secondary);
-  font-size: 110px;
+  font-size: 2em;
   line-height: 110px;
-  letter-spacing: -10px;
+  letter-spacing: -1px;
   font-weight: 900;
   display: block;
 }
@@ -182,7 +182,7 @@ html {
   outline: none;
 }
 
-#servicos .button-group button + button {
+#servicos .button-group button+button {
   margin-left: 30px;
 }
 
@@ -274,4 +274,15 @@ html {
 
 #contato ul li img {
   max-height: 20px;
+}
+
+.size-font {
+  font-size: 24px;
+}
+
+.flex-responsive {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
 }

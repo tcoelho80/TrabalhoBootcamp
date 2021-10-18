@@ -47,3 +47,9 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 767.98px) {
+  .flex-responsive{
+    flex-direction: column;
+  }  
+}
