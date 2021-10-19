@@ -52,4 +52,8 @@
   .flex-responsive{
     flex-direction: column;
   }  
+
+  .center-container{
+    text-align: center;
+  }
 }
