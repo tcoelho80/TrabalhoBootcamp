@@ -31,11 +31,20 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active size-font" href="#">Login</a>
-            </li>
-          </ul>
+          <div class="btn-group">
+            <button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+              Login
+            </button>
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Dropdown</span>
+            </button>
+            <div class="dropdown-menu" >
+              <a class="dropdown-item" href="#">Minhas Campanhas</a>
+              <a class="dropdown-item" href="#">Meu Espaço</a>
+              <di class="dropdown-divider"></di>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -162,5 +171,32 @@
   <script src="js/magnify/jquery.magnific-popup.min.js"></script>
   <script src="js/main.js"></script>
 </body>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Usuário:</label>
+            <input type="usuario" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Senha:</label>
+            <input type="senha" class="form-control" id="recipient-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cadastro</button>
+        <button type="button" class="btn btn-primary">Continuar</button>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
