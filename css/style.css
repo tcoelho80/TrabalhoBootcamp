@@ -31,9 +31,13 @@
 
 .img-pag-col{
     width:"400";
-    height:"205"
+    height:"205";
 }
 
 .aviso{
-    font-size: 13px
+    font-size: 13px;
+}
+
+.modal-cadastro{
+    width: 510px;
 }
