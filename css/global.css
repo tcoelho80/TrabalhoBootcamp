@@ -35,6 +35,9 @@ a:hover {
   width: 48%;
   border-radius: 120px;
 }
+.buttonwid{
+  width: 100%;
+}
 
 .button-primary {
   background-color: var(--primary);
