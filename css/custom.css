@@ -14,12 +14,12 @@ html {
   transition: background ease-out 0.2s;
 }
 
-#header.active {
+/* #header.active {
   position: fixed;
-  background: #fff;
+  background: transparent;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
   z-index: 9999;
-}
+} */
 
 #header .navbar-collapse {
   width: auto;
