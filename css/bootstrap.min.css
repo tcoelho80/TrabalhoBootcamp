@@ -4106,7 +4106,7 @@ fieldset:disabled .btn {
 .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #0d6efd
+    background-color: #fc5185;
 }
 
 .dropdown-item.disabled,
