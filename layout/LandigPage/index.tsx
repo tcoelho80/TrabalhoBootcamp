@@ -14,13 +14,7 @@ export function LandingPageLayout() {
   return (
     <>
       <Header setHeaderHight={setHeaderHight} />
-      <Flex
-        h="100%"
-        w="100%"
-        justify="center"
-        direction="column"
-        mt={headerHight}
-      >
+      <Flex flex="1" justify="center" direction="column" mt={headerHight}>
         <Box w="100%">
           <TopBanner />
           <Cards />

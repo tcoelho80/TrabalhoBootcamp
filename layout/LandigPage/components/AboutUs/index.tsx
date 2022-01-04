@@ -1,18 +1,29 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Text,
+  useMediaQuery
+} from '@chakra-ui/react'
 
 export function AboutUs() {
+  const [isLargerThan1233] = useMediaQuery('(min-width: 1233px)')
+
   return (
-    <Flex>
-      <Box
-        h="600px"
-        w="50%"
-        bgImage="url('images/diversity.jpg')"
-        bgPosition="center"
-        bgRepeat="no-repeat"
-        bgSize="cover"
-      ></Box>
+    <Flex h={isLargerThan1233 ? '600px' : '400px'}>
+      {isLargerThan1233 && (
+        <Box
+          w="50%"
+          bgImage="url('images/diversity.jpg')"
+          bgPosition="center"
+          bgRepeat="no-repeat"
+          bgSize="cover"
+        ></Box>
+      )}
+
       <Flex
-        w="50%"
+        w={isLargerThan1233 ? '50%' : '100%'}
         align="center"
         justify="center"
         direction="column"

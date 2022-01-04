@@ -1,5 +1,4 @@
-import { Container, Flex, Heading, HStack } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Flex, Heading, HStack, useBreakpointValue } from '@chakra-ui/react'
 
 import {
   FaInstagram,
@@ -10,9 +9,17 @@ import {
 } from 'react-icons/fa'
 
 export function Footer() {
+  const isSm = useBreakpointValue({ base: false, sm: true })
+
   return (
     <Flex justify="center" py="8" bg="#264653">
-      <Flex maxW="75%" justify="space-between" w="100%">
+      <Flex
+        maxW="75%"
+        justify="space-between"
+        align="center"
+        w="100%"
+        direction={isSm ? 'row' : 'column'}
+      >
         <Heading fontWeight="light" color="#E76F51">
           colaboraaí
         </Heading>

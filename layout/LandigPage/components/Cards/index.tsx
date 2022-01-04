@@ -5,17 +5,41 @@ import {
   Box,
   Heading,
   Image,
-  Text
+  Text,
+  useMediaQuery,
+  Stack,
+  useBreakpointValue
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 export function Cards() {
+  const is2xl = useBreakpointValue({ base: false, '2xl': true })
+
+  const is1xl = useBreakpointValue({ base: false, '1xl': true })
+
+  const isXl = useBreakpointValue({ base: false, xl: true })
+
+  const isLg = useBreakpointValue({ base: false, lg: true })
+
+  const isMd = useBreakpointValue({ base: false, md: true })
+
+  const isSm = useBreakpointValue({ base: false, sm: true })
+
+  useEffect(() => {
+    console.log(isXl)
+  }, [isXl])
+
   return (
-    <Container maxW="75%">
+    <Container maxW={isXl ? '75%' : '100%'}>
       <Flex w="100%" justify="center" py="16">
-        <HStack spacing="24" h="450px">
+        <Stack
+          spacing="16"
+          h={isXl ? '450px' : 'auto'}
+          direction={isXl ? 'row' : 'column'}
+        >
           <Flex
             direction="column"
-            w="300px"
+            w={isXl ? '300px' : '100%'}
             borderTopRightRadius="4"
             borderTopLeftRadius="4"
             borderBottomRightRadius="4"
@@ -27,7 +51,7 @@ export function Cards() {
           >
             <Image
               boxSize="100%"
-              h="200px"
+              h={isXl ? '200px' : '400px'}
               src="images/create-campaign.jpg"
               borderTopRightRadius="4"
               borderTopLeftRadius="4"
@@ -56,7 +80,7 @@ export function Cards() {
           </Flex>
           <Flex
             direction="column"
-            w="300px"
+            w={isXl ? '300px' : '100%'}
             borderTopRightRadius="4"
             borderTopLeftRadius="4"
             borderBottomRightRadius="4"
@@ -68,7 +92,7 @@ export function Cards() {
           >
             <Image
               boxSize="100%"
-              h="200px"
+              h={isXl ? '200px' : '400px'}
               src="images/collab.jpg"
               borderTopRightRadius="4"
               borderTopLeftRadius="4"
@@ -89,15 +113,14 @@ export function Cards() {
               </Box>
               <Box textAlign="center" py="8">
                 <Text color="gray.600">
-                  Você que deseja criar uma campanha social este é o lugar
-                  certo, clique aqui...
+                  Quer ser um colaborador de uma campanha social, clique aqui...
                 </Text>
               </Box>
             </Flex>
           </Flex>
           <Flex
             direction="column"
-            w="300px"
+            w={isXl ? '300px' : '100%'}
             borderTopRightRadius="4"
             borderTopLeftRadius="4"
             borderBottomRightRadius="4"
@@ -109,7 +132,7 @@ export function Cards() {
           >
             <Image
               boxSize="100%"
-              h="200px"
+              h={isXl ? '200px' : '400px'}
               src="images/beneficiaries.jpg"
               borderTopRightRadius="4"
               borderTopLeftRadius="4"
@@ -130,13 +153,13 @@ export function Cards() {
               </Box>
               <Box textAlign="center" py="8">
                 <Text color="gray.600">
-                  Você que deseja criar uma campanha social este é o lugar
-                  certo, clique aqui...
+                  Esta necessitando de auxilio, você veio ao lugar certo, clique
+                  aqui...
                 </Text>
               </Box>
             </Flex>
           </Flex>
-        </HStack>
+        </Stack>
       </Flex>
     </Container>
   )

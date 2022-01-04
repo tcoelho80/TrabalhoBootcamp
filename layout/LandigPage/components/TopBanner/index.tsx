@@ -31,8 +31,9 @@ export function TopBanner() {
             </Button>
             <Button
               variant="outline"
-              borderColor="#E76F51"
-              color="#E76F51"
+              borderWidth="2px"
+              borderColor="white"
+              color="white"
               size="lg"
             >
               Contato

@@ -1,4 +1,10 @@
-import { Image, Flex, Heading, Text } from '@chakra-ui/react'
+import {
+  Image,
+  Flex,
+  Heading,
+  Text,
+  useBreakpointValue
+} from '@chakra-ui/react'
 import { useEffect, useRef } from 'react'
 
 interface HeaderProps {
@@ -7,6 +13,8 @@ interface HeaderProps {
 
 export function Header({ setHeaderHight }: HeaderProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const isSm = useBreakpointValue({ base: false, sm: true })
 
   useEffect(() => {
     setHeaderHight(containerRef.current?.offsetHeight)
@@ -27,9 +35,11 @@ export function Header({ setHeaderHight }: HeaderProps) {
         <Flex py="6">
           <Image boxSize="75px" src="/images/logo.png" alt="Logo Furacão" />
           <Flex h="100%" align="center" ml="5">
-            <Heading fontWeight="light" color="#E76F51">
-              colaboraaí
-            </Heading>
+            {isSm && (
+              <Heading fontWeight="light" color="#E76F51">
+                colaboraaí
+              </Heading>
+            )}
           </Flex>
         </Flex>
         <Flex h="100%" align="center">
