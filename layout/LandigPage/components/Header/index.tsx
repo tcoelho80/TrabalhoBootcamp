@@ -1,13 +1,33 @@
 import { Image, Flex, Heading, Text } from '@chakra-ui/react'
+import { useEffect, useRef } from 'react'
 
-export function Header() {
+interface HeaderProps {
+  setHeaderHight(height: number | undefined): void
+}
+
+export function Header({ setHeaderHight }: HeaderProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setHeaderHight(containerRef.current?.offsetHeight)
+  }, [containerRef])
+
   return (
-    <Flex h="100%" w="100%" justify="center">
+    <Flex
+      w="100%"
+      justify="center"
+      position="fixed"
+      top="0"
+      left="0"
+      bg="#264653"
+      ref={containerRef}
+      zIndex={1}
+    >
       <Flex maxW="75%" w="100%" justify="space-between">
         <Flex py="6">
           <Image boxSize="75px" src="/images/logo.png" alt="Logo Furacão" />
           <Flex h="100%" align="center" ml="5">
-            <Heading fontWeight="light" color="#770E0E">
+            <Heading fontWeight="light" color="#E76F51">
               colaboraaí
             </Heading>
           </Flex>
@@ -21,10 +41,10 @@ export function Header() {
             transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
             px="8"
             py="8"
-            borderRadius="25px"
+            borderRadius="10px"
             fontSize="14px"
             fontWeight="semibold"
-            bg="pink.400"
+            bg="#E76F51"
             borderColor="#ccd0d5"
             color="white"
             _hover={{ bg: '#ebedf0' }}

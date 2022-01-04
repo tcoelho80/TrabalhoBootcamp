@@ -12,7 +12,7 @@ export function TopBanner() {
       <Flex
         w="100%"
         h="100%"
-        bg="rgba(0, 0, 0, 0.5)"
+        bg="rgba(0, 0, 0, 0.7)"
         justify="center"
         align="center"
         pb="8"
@@ -26,10 +26,15 @@ export function TopBanner() {
           justify="flex-end"
         >
           <HStack spacing="8">
-            <Button colorScheme="pink" size="lg">
+            <Button bg="#E76F51" color="white" size="lg">
               Saiba Mais
             </Button>
-            <Button variant="outline" color="white" size="lg">
+            <Button
+              variant="outline"
+              borderColor="#E76F51"
+              color="#E76F51"
+              size="lg"
+            >
               Contato
             </Button>
           </HStack>
