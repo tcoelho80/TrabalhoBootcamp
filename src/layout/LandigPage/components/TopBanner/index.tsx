@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Button } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 
 export function TopBanner() {
   return (
@@ -24,22 +24,7 @@ export function TopBanner() {
           direction="column"
           align="center"
           justify="flex-end"
-        >
-          <HStack spacing="8">
-            <Button bg="#E76F51" color="white" size="lg">
-              Saiba Mais
-            </Button>
-            <Button
-              variant="outline"
-              borderWidth="2px"
-              borderColor="white"
-              color="white"
-              size="lg"
-            >
-              Contato
-            </Button>
-          </HStack>
-        </Flex>
+        ></Flex>
       </Flex>
     </Box>
   )

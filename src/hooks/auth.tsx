@@ -13,22 +13,40 @@ interface AuthProviderProps {
 }
 
 interface User {
-  id: number
-  username: string
+  cep: string
+  city: string
+  cpfCnpj: string
   email: string
   name: string
+  password: string
+  publicPlace: string
+  state: string
+  userType: string
+}
+
+interface SignInRequest {
+  email: string
+  password: string
+}
+
+interface SignUpRequest {
+  cep: string
+  city: string
+  cpfCnpj: string
+  email: string
+  name: string
+  password: string
+  publicPlace: string
+  state: string
+  userType: string
 }
 
 interface IAuthContextData {
   user: User
   signIn(data: SignInRequest): Promise<void>
-  signOut: () => Promise<void>
+  signUp(data: SignUpRequest): Promise<void>
+  signOut(): Promise<void>
   storageLoading: boolean
-}
-
-interface SignInRequest {
-  username: string
-  password: string
 }
 
 interface ServerResponse {
@@ -53,6 +71,14 @@ function AuthProvider({ children }: AuthProviderProps) {
 
         localStorage.setItem(userStorageKey, JSON.stringify(response.data.user))
       }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function signUp(data: SignUpRequest) {
+    try {
+      api.post('users/create', data)
     } catch (err) {
       console.log(err)
     }
@@ -83,6 +109,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       value={{
         user,
         signIn,
+        signUp,
         signOut,
         storageLoading
       }}
