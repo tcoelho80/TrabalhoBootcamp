@@ -44,11 +44,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   const findUser = users.filter((user) => user.username === username)
 
-  if (!findUser) {
-    return res.status(401).json({ error: `Don't find a user` })
+  if (!findUser[0]) {
+    return res.status(401).json({ message: `User don't exists.` })
   }
 
-  console.log(findUser)
+  const user = findUser[0]
 
-  return res.status(200).json(findUser)
+  if (user.password !== password) {
+    return res.status(401).json({ message: `Wrong password.` })
+  }
+
+  return res.status(200).json({ user })
 }

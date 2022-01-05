@@ -19,13 +19,14 @@ import {
 } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
 import { useAuth } from '../../../../hooks/auth'
+import { FaSignOutAlt } from 'react-icons/fa'
 
 interface HeaderProps {
   setHeaderHight(height: number | undefined): void
 }
 
 export function Header({ setHeaderHight }: HeaderProps) {
-  const { signIn } = useAuth()
+  const { signIn, signOut, user } = useAuth()
 
   const [username, setUsername] = useState('')
 
@@ -38,20 +39,17 @@ export function Header({ setHeaderHight }: HeaderProps) {
   const isSm = useBreakpointValue({ base: false, sm: true })
 
   useEffect(() => {
+    console.log(user)
     setHeaderHight(containerRef.current?.offsetHeight)
   }, [containerRef])
 
   function handleLogin() {
-    const data = {
+    signIn({
       username,
       password
-    }
+    })
 
-    try {
-      signIn(data)
-    } catch (err) {
-      console.log(err)
-    }
+    onClose()
   }
 
   return (
@@ -87,7 +85,8 @@ export function Header({ setHeaderHight }: HeaderProps) {
               transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
               px="8"
               py="8"
-              borderRadius="10px"
+              borderTopLeftRadius="10px"
+              borderBottomLeftRadius="10px"
               fontSize="14px"
               fontWeight="semibold"
               bg="#E76F51"
@@ -104,7 +103,36 @@ export function Header({ setHeaderHight }: HeaderProps) {
                   '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)'
               }}
             >
-              <Text fontSize="16px">login</Text>
+              <Text fontSize="16px">{user.name ? user.name : 'login'}</Text>
+            </Flex>
+            <Flex
+              align="center"
+              as="button"
+              onClick={signOut}
+              height="24px"
+              lineHeight="1.2"
+              transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+              px="2"
+              py="8"
+              borderTopRightRadius="10px"
+              borderBottomRightRadius="10px"
+              fontSize="14px"
+              fontWeight="semibold"
+              bg="#bd5940"
+              borderColor="#ccd0d5"
+              color="white"
+              _hover={{ bg: '#ebedf0' }}
+              _active={{
+                bg: '#dddfe2',
+                transform: 'scale(0.98)',
+                borderColor: '#bec3c9'
+              }}
+              _focus={{
+                FlexShadow:
+                  '0 0 1px 2px rgba(88, 144, 255, .75), 0 1px 1px rgba(0, 0, 0, .15)'
+              }}
+            >
+              <FaSignOutAlt />
             </Flex>
           </Flex>
         </Flex>
