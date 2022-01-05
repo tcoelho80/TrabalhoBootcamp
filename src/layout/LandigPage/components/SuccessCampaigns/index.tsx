@@ -66,8 +66,8 @@ export function SuccessCampaigns() {
         </Text>
       </Box>
       <Slider {...sliderSettings}>
-        {depositions.map((testimonial) => (
-          <Flex p="8">
+        {depositions.map((testimonial, index) => (
+          <Flex p="8" key={index}>
             <Flex
               bg="#F0F0F0"
               h={isMd ? '230px' : '500px'}

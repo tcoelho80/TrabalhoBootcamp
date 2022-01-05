@@ -4,15 +4,23 @@ import {
   Flex,
   Heading,
   Text,
+  useBreakpointValue,
   useMediaQuery
 } from '@chakra-ui/react'
+import { useEffect } from 'react'
 
 export function AboutUs() {
-  const [isLargerThan1233] = useMediaQuery('(min-width: 1233px)')
+  const is2xl = useBreakpointValue({ base: false, '2xl': true })
+
+  const isLg = useBreakpointValue({ base: false, lg: true })
+
+  useEffect(() => {
+    console.log(is2xl)
+  }, [is2xl])
 
   return (
-    <Flex h={isLargerThan1233 ? '600px' : '400px'}>
-      {isLargerThan1233 && (
+    <Flex h={is2xl ? '600px' : '400px'}>
+      {isLg && (
         <Box
           w="50%"
           bgImage="url('images/diversity.jpg')"
@@ -23,7 +31,7 @@ export function AboutUs() {
       )}
 
       <Flex
-        w={isLargerThan1233 ? '50%' : '100%'}
+        w={isLg ? '50%' : '100%'}
         align="center"
         justify="center"
         direction="column"

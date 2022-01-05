@@ -1,33 +1,16 @@
 import {
   Container,
   Flex,
-  HStack,
   Box,
   Heading,
   Image,
   Text,
-  useMediaQuery,
   Stack,
   useBreakpointValue
 } from '@chakra-ui/react'
-import { useEffect } from 'react'
 
 export function Cards() {
-  const is2xl = useBreakpointValue({ base: false, '2xl': true })
-
-  const is1xl = useBreakpointValue({ base: false, '1xl': true })
-
   const isXl = useBreakpointValue({ base: false, xl: true })
-
-  const isLg = useBreakpointValue({ base: false, lg: true })
-
-  const isMd = useBreakpointValue({ base: false, md: true })
-
-  const isSm = useBreakpointValue({ base: false, sm: true })
-
-  useEffect(() => {
-    console.log(isXl)
-  }, [isXl])
 
   const cards = [
     {
@@ -58,8 +41,9 @@ export function Cards() {
           h={isXl ? '450px' : 'auto'}
           direction={isXl ? 'row' : 'column'}
         >
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <Flex
+              key={index}
               direction="column"
               w={isXl ? '300px' : '100%'}
               borderTopRightRadius="4"
