@@ -58,7 +58,7 @@ export function SuccessCampaigns() {
   ]
 
   return (
-    <Container maxW={isSm ? '75%' : '90%'} py="16">
+    <Container maxW={isSm ? '75%' : '90%'} py="8">
       <Box textAlign="center">
         <Heading color="#C58A47">ÚTIMAS CAMPANHAS DE SUCESSO</Heading>
         <Text color="#DBAE5D" fontSize="18px">
