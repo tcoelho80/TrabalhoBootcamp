@@ -14,10 +14,6 @@ export function AboutUs() {
 
   const isLg = useBreakpointValue({ base: false, lg: true })
 
-  useEffect(() => {
-    console.log(is2xl)
-  }, [is2xl])
-
   return (
     <Flex h={is2xl ? '600px' : '400px'}>
       {isLg && (

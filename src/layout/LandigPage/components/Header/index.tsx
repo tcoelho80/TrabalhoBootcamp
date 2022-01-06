@@ -24,6 +24,7 @@ import { useAuth } from '../../../../hooks/auth'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { api } from '../../../../services/api'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 interface HeaderProps {
   setHeaderHight(height: number | undefined): void
@@ -121,6 +122,8 @@ export function Header({ setHeaderHight }: HeaderProps) {
 
   const isSm = useBreakpointValue({ base: false, sm: true })
 
+  const router = useRouter()
+
   useEffect(() => {
     async function statesResponse() {
       const statesResponse = await axios.get<State[]>(
@@ -192,6 +195,12 @@ export function Header({ setHeaderHight }: HeaderProps) {
     }
   }
 
+  function handleSignOut() {
+    signOut()
+
+    router.push('/')
+  }
+
   return (
     <>
       <Flex
@@ -248,7 +257,7 @@ export function Header({ setHeaderHight }: HeaderProps) {
             <Flex
               align="center"
               as="button"
-              onClick={signOut}
+              onClick={handleSignOut}
               height="24px"
               lineHeight="1.2"
               transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
@@ -535,7 +544,12 @@ export function Header({ setHeaderHight }: HeaderProps) {
               >
                 Voltar
               </Button>
-              <Button colorScheme="green" w="100%" onClick={handleSignUp}>
+              <Button
+                type="button"
+                colorScheme="green"
+                w="100%"
+                onClick={handleSignUp}
+              >
                 Cadastrar
               </Button>
             </ModalFooter>
